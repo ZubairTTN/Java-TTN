@@ -2,6 +2,7 @@
 class Counter {
     private int count = 0;
 
+    // the part of the code in the whole program where shared resources are accessed and modified is known as critical section ***here increment() function is a critical section as here t1 and t2 threads are accessing the count++ using single counter instance 
     public synchronized void increment() {
         // synchronized(this){
         //     count++;
