@@ -23,10 +23,11 @@ public class MT2a extends Thread{
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(t1.getState());
+        System.out.println(t1.getState()); //TIMED WAITING 
 
         t1.join(); //main() method will wait for the t1 Thread to finish its execution before going further
         /*on whichever Thread .join() is used the program will wait for that Thread execution to finish  */
+        System.out.println(t1.getState()); //TERMINATED
         
     }
 }
