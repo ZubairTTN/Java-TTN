@@ -6,21 +6,21 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class ReadWritelockEx {
     private int count = 0;
+
     private final ReadWriteLock lock = new ReentrantReadWriteLock();
+
     private final Lock readLock = lock.readLock();
 
     private final Lock writeLock = lock.writeLock();
 
-    public void increment()
-    {
+    public void increment() {
         writeLock.lock();
         try {
             count++;
             Thread.sleep(2000);
         } catch (Exception e) {
             // TODO: handle exception
-        }
-        finally{
+        } finally {
             writeLock.unlock();
         }
     }
@@ -34,15 +34,13 @@ public class ReadWritelockEx {
         }
     }
 
-    public static void main(String[] args) throws InterruptedException{
+    public static void main(String[] args) throws InterruptedException {
         ReadWritelockEx counter = new ReadWritelockEx();
 
         Runnable readTask = new Runnable() {
             @Override
-            public void run()
-            {
-                for(int i = 0; i< 10; i++)
-                {
+            public void run() {
+                for (int i = 0; i < 10; i++) {
                     System.out.println(Thread.currentThread().getName() + " read " + counter.getCount());
                 }
             }
@@ -50,10 +48,8 @@ public class ReadWritelockEx {
 
         Runnable writerTask = new Runnable() {
             @Override
-            public void run()
-            {
-                for(int i =0; i<10; i++)
-                {
+            public void run() {
+                for (int i = 0; i < 10; i++) {
                     counter.increment();
                     System.out.println(Thread.currentThread().getName() + " increment ");
                 }
@@ -71,7 +67,6 @@ public class ReadWritelockEx {
         writerThread.join();
         readerThread1.join();
         readerThread2.join();
-
 
     }
 }
