@@ -15,7 +15,7 @@ public class Demo {
 
         Integer c = 10; //this is called autoboxing
         int g = c.intValue(); //this is called unboxing 
-        // this is what happens inside when we write Integer cc = 10; 
+        // this is what happens in de when we write Integer cc = 10; 
         Integer cc = Integer.valueOf(23); //here Integer is a wrapper class for primitive data type int 
         // here Integer is an object and has many methods associated to it as it is not a primitive data type eg
         System.out.println(c.getClass());
@@ -34,6 +34,10 @@ public class Demo {
         // IMPORTANT
         Integer i = null; //this can hold null 
         // int ii = null; // this cannot hold null
+        Integer gj = Integer.valueOf(3);
+        int gg = gj.intValue();
+        System.out.println(Integer.max(4, gg));
+        System.out.println(Integer.toBinaryString(7));
 
 
 

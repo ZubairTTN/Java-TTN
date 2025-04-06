@@ -1,0 +1,2 @@
+This is written using BufferedWriter
+This is another line using BufferedWriterThis append text will not replace the pre existing text
